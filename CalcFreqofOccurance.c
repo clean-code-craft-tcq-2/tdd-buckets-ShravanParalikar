@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "CalcFreqofOccurance.h"
 
 int SamplesCount = 0;
 int CurrentSamples[7] = {3, 3, 5, 4, 10, 11, 12};
