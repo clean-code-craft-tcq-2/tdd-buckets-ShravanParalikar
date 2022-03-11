@@ -1,5 +1,6 @@
 #include "assert.h"
 #include "catch.hpp"
+#include "CalcFreqofOccurance.c"
 #define CATCH_CONFIG_MAIN
 
 int Current_Samples = 0;
