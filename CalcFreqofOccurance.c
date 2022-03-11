@@ -15,11 +15,11 @@ int ReadSamples(int FromRange , int ToRange)
       FreqofOccurance++;
     }
   }
-  SendDataToPrint(FromRange ,ToRange ,FreqofOccurance);
+  Print(FromRange ,ToRange ,FreqofOccurance);
   return FreqofOccurance;
 }
 
-void SendDataToPrint(int FromRange , int ToRange ,int FreqofOccurance )
+void Print(int FromRange , int ToRange ,int FreqofOccurance )
 {
   char PrintData[100];
   sprintf(PrintData,"%d-%d,%d\n",FromRange,ToRange,FreqofOccurance);
