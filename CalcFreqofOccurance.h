@@ -1,2 +1,2 @@
 int ReadSamples(int FromRange, int ToRange);
-void Print(FromRange ,ToRange ,FreqofOccurance);
+void Print(int FromRange , int ToRange ,int FreqofOccurance );
