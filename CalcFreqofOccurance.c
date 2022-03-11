@@ -5,7 +5,7 @@ int SamplesCount = 0;
 int CurrentSamples[7] = {3, 3, 5, 4, 10, 11, 12};
 int TotalNoSamples = sizeof(CurrentSamples)/sizeof(CurrentSamples[0]);
   
-int ReadSamples(int FromRange , int ToRange)
+int GetCurrentSamples(int FromRange , int ToRange)
 {
   int FreqofOccurance = 0;
   for(int i = 0 ; i < TotalNoSamples; i++)
