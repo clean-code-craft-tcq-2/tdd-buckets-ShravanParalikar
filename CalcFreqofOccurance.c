@@ -1,27 +1,43 @@
 #include <stdio.h>
 #include "CalcFreqofOccurance.h"
 
-int SamplesCount = 0;
-int CurrentSamples[7] = {3, 3, 5, 4, 10, 11, 12};
-int TotalNoSamples = sizeof(CurrentSamples)/sizeof(CurrentSamples[0]);
+int* SortArray(int *CurrentSamples, int NoOfSamples) 
+{
+  qsort(CurrentSamples,NoOfSamples,sizeof(int),CompareInputs);
+  int* SortedSamples = CurrentSamples;
+
+  return SortedSamples;
+}
   
-int GetCurrentSamples(int FromRange , int ToRange)
+int CalcFreqofOccurance(int* SortedSamples, int TotalNoSamples)
 {
   int FreqofOccurance = 0;
-  for(int i = 0 ; i < TotalNoSamples; i++)
+  int Startpt         = SortedSamples[0];
+  int Endpt           = SortedSamples[TotalNoSamples - 1];
+
+  for(int i = 0 ;i < TotalNoSamples; i++)
   {
-    if((FromRange <= CurrentSamples[i]) && (ToRange >= CurrentSamples[i]))
+    if((Startpt <= SortedSamples[i]) && (Endpt >= SortedSamples[i]))
     {
       FreqofOccurance++;
     }
   }
-  Print(FromRange ,ToRange ,FreqofOccurance);
+  Print(Startpt, Endpt, FreqofOccurance);
+
   return FreqofOccurance;
 }
 
-void Print(int FromRange , int ToRange ,int FreqofOccurance )
+void Print(int Startpt ,int Endpt ,int FreqofOccurance)
 {
-  char PrintData[100];
-  sprintf(PrintData,"%d-%d,%d\n",FromRange,ToRange,FreqofOccurance);
-  printf("%s",PrintData);
+  char DisplayData[100];
+  sprintf(DisplayData,"%d-%d,%d\n",Startpt,Endpt,FreqofOccurance);
+  printf("%s",DisplayData);
+}
+
+int GetCurrentSamples(int *CurrentSamples, int NoOfSamples)
+{
+  int *SortedSamples = SortArray(CurrentSamples,NoOfSamples);
+  int  SamplesCount  = CalcFreqofOccurance(SortedSamples,NoOfSamples);
+
+  return SamplesCount;  
 }

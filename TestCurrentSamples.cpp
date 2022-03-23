@@ -3,16 +3,19 @@
 #include "test/catch.hpp"
 #include "CalcFreqofOccurance.h"
 
-int Current_Samples = 0;
+int CurrentSamplesArray1[4] = {3, 3, 5, 4};
+int CurrentSamplesArray2[3] = {10,11,12};
 
-TEST_CASE("Get current samples from session")
+TEST_CASE("Get current samples from Array1")
 {
- Current_Samples = GetCurrentSamples(4,5);
- REQUIRE(Current_Samples == 2);
+    int Samples = sizeof(CurrentSamplesArray1)/sizeof(CurrentSamplesArray1[0]);
+    int TotalNoOfSamples = GetCurrentSamples(CurrentSamplesArray1, Samples);
+    REQUIRE(TotalNoOfSamples == 4);
 }
 
-TEST_CASE("Get samples from 10-12 range")
+TEST_CASE("Get current samples from Array2")
 {
- Current_Samples = GetCurrentSamples(10,12);
- REQUIRE(Current_Samples == 3);
+    int Samples = sizeof(CurrentSamplesArray2)/sizeof(CurrentSamplesArray2[0]);
+    int TotalNoOfSamples = GetCurrentSamples(CurrentSamplesArray2, Samples);
+    REQUIRE(TotalNoOfSamples == 3);
 }
