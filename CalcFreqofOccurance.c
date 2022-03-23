@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "CalcFreqofOccurance.h"
 
 int CheckInput(const void * firstInput, const void * secondInput) 
