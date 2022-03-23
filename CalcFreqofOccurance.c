@@ -1,9 +1,14 @@
 #include <stdio.h>
 #include "CalcFreqofOccurance.h"
 
+int CheckInput(const void * firstInput, const void * secondInput) 
+{
+  return ( *(int*)firstInput - *(int*)secondInput );
+}
+
 int* SortArray(int *CurrentSamples, int NoOfSamples) 
 {
-  qsort(CurrentSamples,NoOfSamples,sizeof(int),CompareInputs);
+  qsort(CurrentSamples,NoOfSamples,sizeof(int),CheckInput);
   int* SortedSamples = CurrentSamples;
 
   return SortedSamples;
