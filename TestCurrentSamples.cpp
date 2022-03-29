@@ -33,7 +33,7 @@ TEST_CASE("Checks for the current values for given ADC values from an array")
 	int currentSenseValues[numberOfSamples];
 
 	ConvertinAmps(A2DSensor_Output, numberOfSamples, ADC_RESOLUTION, MAXCURRENTVALUE, currentSenseValues);
-	for(int i=0; i < numberOfSamples; i++)
+	for(int i=0; i < 1; i++)
 	{
 		REQUIRE(currentSenseValues[i] == CurrentinAmps[i]);
 		printf("%f\n",currentSenseValues);
