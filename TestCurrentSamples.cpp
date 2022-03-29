@@ -27,9 +27,9 @@ TEST_CASE("Get current samples from Array2")
 TEST_CASE("Checks for the current values for given ADC values from an array")
 {
 	
-	int A2DSensor_Output[] = {64, 512, 1140, 1220, 1560, 2048,4094};
+	int A2DSensor_Output[] = {64, 512, 1146, 1220, 1560, 2048,4094};
 	int numberOfSamples = sizeof(A2DSensor_Output) / sizeof(A2DSensor_Output[0]);
-	int CurrentinAmps[] = {0, 1, 2, 3, 4, 5, 10};
+	int CurrentinAmps[] = {0, 1, 3, 3, 4, 5, 10};
 	int currentSenseValues[numberOfSamples];
 
 	ConvertinAmps(A2DSensor_Output, numberOfSamples, ADC_RESOLUTION, MAXCURRENTVALUE, currentSenseValues);
