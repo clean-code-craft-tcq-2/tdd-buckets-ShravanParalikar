@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <cmath.h>
+#include <cmath>
 
 int GetAnalogToDigitalConversion(int ADC_RESOLUTION);
 int AnalogToDigitalConversion(int ADC_RESOLUTION);
