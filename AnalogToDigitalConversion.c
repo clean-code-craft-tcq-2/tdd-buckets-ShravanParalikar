@@ -22,8 +22,8 @@ void SensorAtoDConversion(int A2DSensor_Output[], int numberOfSamples, int ADC_R
 	
 	for (int i=0; i< numberOfSamples; i++)
 	{
-		AToDSensorValue = (A2DSensor_Output[i]);
-		currentValue = ((MAXCURRENTVALUE * AToDSensorValue)) / (GetAnalogToDigitalConversion(ADC_RESOLUTION));
+		AToDSensorValue = (MAXCURRENTVALUE * A2DSensor_Output[i]);
+		currentValue    = (AToDSensorValue/(GetAnalogToDigitalConversion(ADC_RESOLUTION));
 		currentConversionValues[i] = round(currentValue);
 		if(currentConversionValues[i] < 0)
 		{
