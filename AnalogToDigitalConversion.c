@@ -17,12 +17,13 @@ int AnalogToDigitalConversion(int ADC_RESOLUTION)
 
 void SensorAtoDConversion(int A2DSensor_Output[], int numberOfSamples, int ADC_RESOLUTION, int MAXCURRENTVALUE, int* currentConversionValues)
 {
-	float currentValue, analogToDigitalCoversionValue;
+	float currentValue;
+	int   AToDSensorValue;
 	
 	for (int i=0; i< numberOfSamples; i++)
 	{
-		analogToDigitalCoversionValue = (A2DSensor_Output[i]) / (GetAnalogToDigitalConversion(ADC_RESOLUTION));
-		currentValue = (MAXCURRENTVALUE * analogToDigitalCoversionValue) / (GetAnalogToDigitalConversion(ADC_RESOLUTION));
+		AToDSensorValue = (A2DSensor_Output[i]);
+		currentValue = ((MAXCURRENTVALUE * AToDSensorValue)) / (GetAnalogToDigitalConversion(ADC_RESOLUTION));
 		currentConversionValues[i] = round(currentValue);
 		if(currentConversionValues[i] < 0)
 		{
