@@ -24,7 +24,7 @@ TEST_CASE("Get current samples from Array2")
     REQUIRE(TotalNoOfSamples == 3);
 }
 
-TEST_CASE("Checks for the current values for given ADC values from the array")
+TEST_CASE("Checks for the current values for given ADC values from an array")
 {
 	
 	int A2DSensor_Output[] = {64, 512, 1140, 1220, 1560, 2048,4094};
@@ -39,7 +39,7 @@ TEST_CASE("Checks for the current values for given ADC values from the array")
 	}
 }
 
-TEST_CASE("Checks for the ignore the error when given ADC value is 4095")
+TEST_CASE("Checks when given ADC value is 4095")
 {
 	
 	int A2DSensor_Output[] = {4095};
@@ -47,7 +47,7 @@ TEST_CASE("Checks for the ignore the error when given ADC value is 4095")
 	int currentSenseValues[numberOfSamples];
 	int expectednumberOfSamples = 1;
 	
-	ChargingCurrentSenseValue(A2DSensor_Output, numberOfSamples, ADC_RESOLUTION, MAXCURRENTVALUE, currentSenseValues);
+	ConvertinAmps(A2DSensor_Output, numberOfSamples, ADC_RESOLUTION, MAXCURRENTVALUE, currentSenseValues);
 
 }
 
