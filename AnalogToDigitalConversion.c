@@ -5,14 +5,9 @@ void FaultyReadings(void)
 	printf("Faulty Readings\n");
 }
 
-int GetAnalogToDigitalConversion(int ADC_RESOLUTION)
+int GetAnalogToDigitalConversion(int ADC_RESOLUTION, int value)
 {
-	return (pow(2,ADC_RESOLUTION) - 2);
-}
-
-int AnalogToDigitalConversion(int ADC_RESOLUTION)
-{
-	return (pow(2,ADC_RESOLUTION) - 1);
+	return (pow(2,ADC_RESOLUTION) - value);
 }
 
 void SensorAtoDConversion(int A2DSensor_Output[], int numberOfSamples, int ADC_RESOLUTION, int MAXCURRENTVALUE, int* currentConversionValues)
@@ -20,10 +15,10 @@ void SensorAtoDConversion(int A2DSensor_Output[], int numberOfSamples, int ADC_R
 	float currentValue;
 	int   AToDSensorValue;
 	
-	for (int i=0; i< numberOfSamples; ++i)
+	for (int i = 0; i < numberOfSamples ; ++i)
 	{
 		AToDSensorValue = (MAXCURRENTVALUE * A2DSensor_Output[i]);
-		currentValue    = (AToDSensorValue/(GetAnalogToDigitalConversion(ADC_RESOLUTION)));
+		currentValue    = (AToDSensorValue/(GetAnalogToDigitalConversion(ADC_RESOLUTION,2)));
 		currentConversionValues[i] = round(currentValue);
 		if(currentConversionValues[i] < 0)
 		{
@@ -36,7 +31,7 @@ void ConvertinAmps(int A2DSensor_Output[], int numberOfSamples, int ADC_RESOLUTI
 {
 	for (int i = 0; i< numberOfSamples; ++i)
 	{
-		if(A2DSensor_Output[i] < (AnalogToDigitalConversion(ADC_RESOLUTION)))
+		if(A2DSensor_Output[i] < (GetAnalogToDigitalConversion(ADC_RESOLUTION,1)))
 		{
 			SensorAtoDConversion(A2DSensor_Output, numberOfSamples, ADC_RESOLUTION, MAXCURRENTVALUE,currentSenseValues);
 		}
