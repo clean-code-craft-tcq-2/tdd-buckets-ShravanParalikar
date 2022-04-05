@@ -48,7 +48,7 @@ TEST_CASE("Checks when given ADC value is 4095")
 	int expectednumberOfSamples = 1;
 	
 	ConvertinAmps(A2DSensor_Output, numberOfSamples, ADC_RESOLUTION, MAXCURRENTVALUE, currentSenseValues);
-	REQUIRE(numberOfSamples == expectednumberOfSamples)
+	REQUIRE(numberOfSamples == expectednumberOfSamples);
 
 }
 
